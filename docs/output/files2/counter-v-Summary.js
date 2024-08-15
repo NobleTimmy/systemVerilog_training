@@ -1,0 +1,1 @@
+﻿NDFramePage.OnPageTitleLoaded("File2:counter.v","counter.v");NDSummary.OnSummaryLoaded("File2:counter.v",[["SystemVerilog","SystemVerilog"]],[["Classes","Class"]],[[2,0,0,"counter","counter"]]);

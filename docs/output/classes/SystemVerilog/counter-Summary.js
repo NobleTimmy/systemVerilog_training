@@ -1,0 +1,1 @@
+﻿NDFramePage.OnPageTitleLoaded("SystemVerilogClass:counter","counter");NDSummary.OnSummaryLoaded("SystemVerilogClass:counter",[["SystemVerilog","SystemVerilog"]],[["Classes","Class"]],[[2,0,0,"counter"]]);

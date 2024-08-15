@@ -1,6 +1,30 @@
+// Class: flipflop_chain
+//
+// Simple shift-register module with parameterized 
+// data width, and number of shifts.
+//
+//  Parameters:
+//
+//  - DW        : type (reg[4:0]), default_val (5'd8)
+//  - CHAIN_NUM : type (reg[2:0]), default_val (3'b010)
+//
+//  Ports:
+//
+//  - input   wire          clk   
+//  - input   wire          rst_n 
+//  - input   wire[DW-1:0]  in    
+//  - output  wire[DW-1:0]  out
+//
+//
+// *Note*: 
+// reset is active when it's 0, and it's 
+// asynchronous
+// _CHAIN_NUM PARAMETER ALWAYS BIGGER THAN 1_
+//
+
 module flipflop_chain#(
   parameter reg[4:0] DW         = 5'd8,
-  parameter reg[2:0] CHAIN_NUM  = 3'b010 //NOTE: CHAIN_NUM PARAMETER ALWAYS THAN 1
+  parameter reg[2:0] CHAIN_NUM  = 3'b010 
 )(
   input   wire          clk   ,
   input   wire          rst_n ,

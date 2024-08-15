@@ -1,3 +1,8 @@
+// Class: tb
+//
+// Top-level testbench, all the modules,
+// which are used are <flipflop_chain>, <counter>
+// 
 module tb;
   localparam reg[4:0] DW        = 5'd8;
   localparam reg[2:0] CHAIN_NUM = 3'd4;

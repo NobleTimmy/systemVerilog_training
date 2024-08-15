@@ -1,0 +1,1 @@
+﻿NDSearch.OnPrefixDataLoaded("fli",["Class"],[["flipflop_chain",,[[,,,,0,"File2:flipflop_chain.v:flipflop_chain","SystemVerilogClass:flipflop_chain"]]]]);

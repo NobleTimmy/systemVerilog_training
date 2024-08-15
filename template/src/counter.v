@@ -1,3 +1,15 @@
+// Class: counter
+//
+// Simple counter module with parameterized 
+// WIDTH.
+//
+// *Note*: 
+// reset is active when it's 1, and it's 
+// asynchronous
+//
+
+
+
 module counter(out, clk, reset);
 
   parameter WIDTH = 8;

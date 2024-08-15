@@ -1,0 +1,1 @@
+﻿NDFramePage.OnPageTitleLoaded("File2:flipflop_chain.v","flipflop_chain.v");NDSummary.OnSummaryLoaded("File2:flipflop_chain.v",[["SystemVerilog","SystemVerilog"]],[["Classes","Class"]],[[3,0,0,"flipflop_chain","flipflop_chain"]]);

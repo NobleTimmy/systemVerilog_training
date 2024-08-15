@@ -1,2 +1,4 @@
 unset REPO_ROOT
+unset ND_EXE
 export REPO_ROOT="/home/ubuntu/systemVerilog/repos/systemVerilog_training"
+export ND_EXE="/home/ubuntu/systemVerilog/addApps/nd/NaturalDocs.exe"

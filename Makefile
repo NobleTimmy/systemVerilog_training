@@ -2,7 +2,7 @@ PROJECT_NUM		:= 0
 PROJECT_PATH 	?= ${REPO_ROOT}/projects/myProjects${PROJECT_NUM}/
 FILE_NAME_VCD := tb
 
-.PHONY: xrun_comp xrun_sim xrun_wave clear all all_wave
+.PHONY: xrun_comp xrun_sim xrun_wave clear all all_wave create_docs
 
 xrun_comp:
 	verilator --binary --top tb --timing \
@@ -22,3 +22,9 @@ clear:
 all: clear xrun_comp xrun_sim
 
 all_wave: clear xrun_comp xrun_sim xrun_wave
+
+create_docs:
+	mono ${ND_EXE} -p ${REPO_ROOT}/docs/cfg
+
+
+

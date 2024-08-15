@@ -1,0 +1,1 @@
+﻿NDSearch.OnPrefixDataLoaded("cou",["Class"],[["counter",,[[,,,,0,"File2:counter.v:counter","SystemVerilogClass:counter"]]]]);
