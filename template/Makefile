@@ -5,7 +5,7 @@ FILE_NAME_VCD := tb
 .PHONY: xrun_comp xrun_sim xrun_wave clear all all_wave
 
 xrun_comp:
-	verilator --binary --top tb --timing \
+	verilator --binary --sv --top tb --timing \
 	--timescale 1ns/100ps -j $$(nproc) \
 	-f ${LESSON_ROOT}/src/filelist.f --trace \
 	-o work_verilator

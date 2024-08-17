@@ -27,7 +27,7 @@ VL_ATTR_COLD void Vtb___024root___eval_initial__TOP(Vtb___024root* vlSelf) {
     VL_DEBUG_IF(VL_DBG_MSGF("+    Vtb___024root___eval_initial__TOP\n"); );
     // Body
     VL_WRITEF("Hello World!\n");
-    VL_FINISH_MT("/home/ubuntu/systemVerilog/repos/systemVerilog_training/projects/myProjects1/src/tb.sv", 4, "");
+    VL_FINISH_MT("/home/ubuntu/systemVerilog/repos/systemVerilog_training/projects/myProjects1/src/tb.sv", 7, "");
 }
 
 VL_ATTR_COLD void Vtb___024root___eval_final(Vtb___024root* vlSelf) {
