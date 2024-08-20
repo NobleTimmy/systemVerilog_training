@@ -1,6 +1,6 @@
 REPO_ROOT		:= /home/ubuntu/systemVerilog/repos/systemVerilog_training
 PROJECT_NUM		:= 0
-PROJECT_PATH 	?= ${REPO_ROOT}/projects/myProjects${PROJECT_NUM}/homeWorksOfDataTypes/work_1
+PROJECT_PATH 	?= ${REPO_ROOT}/projects/myProjects${PROJECT_NUM}/homeWorksOfDataTypes/
 FILE_NAME_VCD := tb
 
 .PHONY: xrun_comp xrun_sim xrun_wave clear all all_wave create_docs
