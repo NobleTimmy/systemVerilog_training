@@ -16,6 +16,7 @@ class alignas(VL_CACHE_LINE_BYTES) Vtb___024root final : public VerilatedModule 
     // DESIGN SPECIFIC STATE
     CData/*0:0*/ __VactContinue;
     IData/*31:0*/ __VactIterCount;
+    VlQueue<CData/*7:0*/> tb__DOT__unnamedblk1__DOT__dynamic_array_2;
     VlTriggerVec<0> __VactTriggered;
     VlTriggerVec<0> __VnbaTriggered;
 
