@@ -1,14 +1,15 @@
-REPO_ROOT		:= /home/ubuntu/systemVerilog/repos/systemVerilog_training
 PROJECT_NUM		:= 0
-PROJECT_PATH 	?= ${REPO_ROOT}/projects/myProjects${PROJECT_NUM}/homeWorksOfDataTypes/
+PROJECT_PATH 	?= ${REPO_ROOT}/projects/myProjects${PROJECT_NUM}/
 FILE_NAME_VCD := tb
+EXERCISE_NAME :=
 
 .PHONY: xrun_comp xrun_sim xrun_wave clear all all_wave create_docs
 
 xrun_comp:
-	verilator --binary -sv --top tb --timing \
+	verilator --binary --sv --top tb --timing \
 	--timescale 1ns/100ps -j $$(nproc) \
-	-f ${PROJECT_PATH}/src/filelist.f --trace \
+	-f ${PROJECT_PATH}/src/filelist.sv --trace \
+	+define+${EXERCISE_NAME} \
 	-o work_verilator
 
 xrun_sim:
