@@ -27,17 +27,14 @@ module tb;
       logic[7:0]      memory_map[3:0] = '{ 8'h0, 8'h0, 8'h0, 8'h0};
       logic[3:0][7:0] packed_array    = 32'h0;
       // First realization
-      /* verilator lint_off WIDTHTRUNC */
       foreach(memory_map[i]) begin
         memory_map[i] = input_data >> (8*i); //DEAD_BEEF 00DE_ADBE 0000_DEAD 0000_00DE
       end
-      /* verilator lint_on WIDTHTRUNC */
       $display("Memory_map %p", memory_map);
       foreach(memory_map[i]) begin
         $display($sformatf("memory_map foreach, index[%d], value[%h]", i, memory_map[i]));
       end
       // Second realization
-      /* verilator lint_off WIDTHTRUNC */
       foreach(memory_map[i]) begin
         memory_map[i] = {8{1'bX}};
       end
@@ -74,14 +71,95 @@ module tb;
 
     `endif 
 
+    `ifdef Ex4
+      string array[];
+      array = new [2];
+      array = '{"Biba", "Boba"};
+      $display("content %p, \nsize = %d", array, array.size());
+      array.delete();
+      $display("content %p, \nsize = %d", array, array.size());
+    `endif
+    `ifdef Ex5
+      int map_size = 'd0;
+      bit[7:0] memory_map[bit[7:0]] = '{8'h0: 8'hFF, 8'h1C:8'h77 };
+      foreach(memory_map[key]) begin
+        $display("memory_map[%h] = %h", key, memory_map[key]);
+      end
+      $display("size = %d", memory_map.size()); 
+      memory_map.delete(8'h1C);
+      $display("size = %d", memory_map.size()); 
+      memory_map[8'h3B]= 8'h1B;
+      $display("size = %d", memory_map.size()); 
+      for(bit[7:0] i='d0; 1; i += 1'b1) begin
+        if (memory_map.exists(i)) begin
+          map_size = map_size + 1'b1;
+          $display("memory_map[%h] = %h", i, memory_map[i]);
+        end
+        if (map_size == memory_map.size())
+          break;
+      end
+
+     // for(;;) begin
+     // end
+
+     // while(1) begin
+     // end
+
+     // forever begin
+     // end
+
+     // always begin
+     // end
+
+     // do begin
+     // end
+     // while(1)
+    `endif // Ex5
+    `ifdef Ex6
+      bit[7:0] queue_ex[$] = '{8'hFF, 8'hAA, 8'hCC, 8'hBB};
+      $display("queue_ex_1 is %p, \nsize is %d", queue_ex, queue_ex.size());
+      
+      queue_ex.push_back(8'h77);
+      $display("queue_ex_2 is %p, \nsize is %d", queue_ex, queue_ex.size());
+
+      queue_ex.push_front(8'h66);
+      $display("queue_ex_2 is %p, \nsize is %d", queue_ex, queue_ex.size());
+
+      queue_ex.insert(3, 8'h00);
+      $display("queue_ex_3 is %p, \nsize is %d", queue_ex, queue_ex.size());
+
+      // Pop_examples
+      $display("Pop_front %h", queue_ex.pop_front());
+      $display("queue_ex_4 is %p, \nsize is %d", queue_ex, queue_ex.size());
+
+      $display("Pop_back %h", queue_ex.pop_back());
+      $display("queue_ex_5 is %p, \nsize is %d", queue_ex, queue_ex.size());
+
+      void'(queue_ex.pop_front());
+      void'(queue_ex.pop_back());
+
+      $display("queue_ex_6 is %p, \nsize is %d", queue_ex, queue_ex.size());
+      // First way of iteration
+      foreach(queue_ex[index]) begin
+        $display("[iter_foreach] queue_ex[%d]=%h", index,queue_ex[index]);
+      end
+
+      // Second way of iteration
+      for(int index = 'd0; index < queue_ex.size(); ++index) begin
+        $display("[iter_for] queue_ex[%d]=%h", index,queue_ex[index]);
+      end
 
 
 
+    `endif
     $finish;
+
+
+
   end
 
 
 
 
 
-endmodule:tb
+endmodule     :tb

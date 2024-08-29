@@ -11,6 +11,7 @@ EXERCISE_NAME	:=
 xrun_comp:
 	verilator --binary --top tb --timing \
 	--timescale 1ns/100ps -j $$(nproc) \
+	${REPO_ROOT}/verirules.vlt \
 	-f ${PROJECT_PATH}/src/filelist.sv --trace \
 	+define+${EXERCISE_NAME} \
 	-o work_verilator
