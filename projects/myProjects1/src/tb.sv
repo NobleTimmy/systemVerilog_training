@@ -81,7 +81,7 @@ module tb;
     `endif
     `ifdef Ex5
       int map_size = 'd0;
-      bit[7:0] memory_map[bit[7:0]] = '{8'h0: 8'hFF, 8'h1C:8'h77 };
+      bit[7:0] memory_map[bit[7:0]] = '{8'h0:8'hFF, 8'h1C:8'h77 };
       foreach(memory_map[key]) begin
         $display("memory_map[%h] = %h", key, memory_map[key]);
       end
@@ -138,7 +138,7 @@ module tb;
       void'(queue_ex.pop_front());
       void'(queue_ex.pop_back());
 
-      $display("queue_ex_6 is %p, \nsize is %d", queue_ex, queue_ex.size());
+      $display("queue_ex_7 is %p, \nsize is %d", queue_ex, queue_ex.size());
       // First way of iteration
       foreach(queue_ex[index]) begin
         $display("[iter_foreach] queue_ex[%d]=%h", index,queue_ex[index]);
@@ -151,15 +151,49 @@ module tb;
 
 
 
-    `endif
+    `endif //end Ex6
+
+    `ifdef Ex7
+      string memory_array[bit[23:0]] = '{24'hA50400: "Jump to location 0x400 fo the main code", 24'h123456:"Instruction 1 located at location 0x400", 24'h789ABC:"Instruction 2 located at location 0x401", 24'h0F1E2D:"ISR = return from interrupt" };
+      foreach(memory_array[key]) begin
+        $display("memory_array[%h] = %p", key, memory_array[key]);
+      end
+      $display("size = %d", memory_array.size()); 
+    `endif //end Ex7
+
+
+    `ifdef Ex8
+      byte sumqueue = 8'd0;
+      byte queue1[] = '{8'd2, -8'd1, 8'd127};
+      byte min = queue1[0];
+      byte max = queue1[0];
+      foreach(queue1[index]) begin
+        $display("queue1[%d]=%d", index,queue1[index]);
+        sumqueue = sumqueue + queue1[index];
+        if (min > queue1[index]) begin
+          min = queue1[index];
+        end
+        if (max < queue1[index]) begin
+          max = queue1[index];
+        end
+     
+      end
+        queue1.sort();
+      $display("Sum of elements queue1 = %p  \n min = %d \n max = %d", sumqueue, min , max);
+      $display("sorting queue1 is %p ", queue1);
+      foreach(queue1[b]) begin
+      if($signed(queue1[b]) < $signed('d0))
+        $display("Negative element is queue1 [%d] = %d", b, queue1[b]);
+      if($signed(queue1[b]) > $signed('d0)) 
+        $display("Positive element is queue1 [%d] = %d", b, queue1[b]);
+      end
+      queue1.rsort();
+      $display("Reverse sort queue1 is %p", queue1);
+      
+    `endif //end Ex8
+
+
     $finish;
-
-
-
   end
-
-
-
-
 
 endmodule     :tb
